@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [luz, setLuz] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div id="top">
+      </div>
+      <div id="semaforo">
+        <div className={"red" + (luz === "luzRed" ? " luzRed" : "")} onClick={(e) => {
+          e.target.className === "red" ? setLuz("luzRed") : setLuz("red")
+        }}></div>
+        <div className={"yellow" + (luz === "luzYellow" ? " luzYellow" : "")} onClick={(e) => {
+          e.target.className === "yellow" ? setLuz("luzYellow") : setLuz("yellow")
+        }}></div>
+        <div className={"green" + (luz === "luzGreen" ? " luzGreen" : "")} onClick={(e) => {
+          e.target.className === "green" ? setLuz("luzGreen") : setLuz("green")
+        }}></div>
+      </div>
     </div>
   );
 }
